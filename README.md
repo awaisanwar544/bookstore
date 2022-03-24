@@ -2,7 +2,7 @@
 
 # BookStore
 
-> A react based application for math lovers.
+> A react based application for books lovers.
 
 ## Built With
 
