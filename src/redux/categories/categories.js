@@ -11,7 +11,7 @@ export const checkStatus = () => ({
 
 const statusReducer = (state = initialState, action = {}) => {
   if (action.type === CHECK_STATUS) {
-    return [];
+    return 'Under Construction';
   }
   return state;
 };
