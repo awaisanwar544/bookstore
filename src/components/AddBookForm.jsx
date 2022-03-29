@@ -1,27 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/books';
 
 const AddBookForm = () => {
+  const [title, setTitle] = useState();
+  const [author, setAuthor] = useState();
   const dispatch = useDispatch();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(addBook({
-      id: Date.now(),
-      title: event.target[0].value,
-      author: event.target[1].value,
-    }));
-    event.target.reset();
-  };
-
   return (
-    <form onSubmit={(event) => { handleSubmit(event); }}>
-      <h2>Add New Book</h2>
-      <input type="text" name="bookname" placeholder="Book title" />
-      <input type="text" name="title" placeholder="Add title" />
-      <input type="submit" value="Add Book" />
-    </form>
+    <div>
+      <h2>ADD NEW BOOK</h2>
+      <form>
+        <input type="text" value={title || ''} placeholder="Book title" onChange={(e) => setTitle(e.target.value)} required />
+        <input type="text" value={author || ''} placeholder="Author" onChange={(e) => setAuthor(e.target.value)} required />
+        <button
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            if (title && author) {
+              const id = uuidv4();
+              dispatch(addBook({ id, title, author }));
+              setAuthor();
+              setTitle();
+            }
+          }}
+        >
+          ADD BOOK
+
+        </button>
+      </form>
+    </div>
   );
 };
 

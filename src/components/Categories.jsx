@@ -8,13 +8,15 @@ const Categories = () => {
   return (
     <div className="categories">
       <p>{status}</p>
-      <input
+      <button
         type="button"
         value="Check Status"
         onClick={() => {
           dispatch(checkStatus('UNDER_CONSTRUCTION'));
         }}
-      />
+      >
+        Check Status
+      </button>
     </div>
   );
 };

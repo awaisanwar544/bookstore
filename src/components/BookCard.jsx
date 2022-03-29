@@ -9,14 +9,17 @@ const BookCard = ({ title, author, id }) => {
     <div className="book">
       <h3>{title}</h3>
       <p>{author}</p>
-      <input
+      <button
         id={id}
-        type="button"
         value="Remove"
+        type="button"
         onClick={(event) => {
           dispatch(removeBook(event.target.id));
         }}
-      />
+      >
+        Remove
+      </button>
+
     </div>
   );
 };
@@ -24,7 +27,7 @@ const BookCard = ({ title, author, id }) => {
 BookCard.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default BookCard;
