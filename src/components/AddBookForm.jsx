@@ -12,6 +12,7 @@ const AddBookForm = () => {
       title: event.target[0].value,
       author: event.target[1].value,
     }));
+    event.target.reset();
   };
 
   return (
