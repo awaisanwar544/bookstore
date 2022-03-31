@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import AddBookForm from './AddBookForm';
 import BookCard from './BookCard';
 import { fetchBooks } from '../redux/books/books';
+import StyledDiv from './styles/Books.styled';
 
 const Books = () => {
   const books = useSelector((state) => state.books);
@@ -11,7 +12,7 @@ const Books = () => {
     dispatch(fetchBooks());
   }, []);
   return (
-    <>
+    <StyledDiv>
       <div>
         {books.map((item) => (
           <BookCard
@@ -22,8 +23,9 @@ const Books = () => {
           />
         ))}
       </div>
+      <div className="seperator" />
       <AddBookForm />
-    </>
+    </StyledDiv>
   );
 };
 
