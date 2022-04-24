@@ -9,7 +9,9 @@ const Books = () => {
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchBooks());
+    if (books.length === 0) {
+      dispatch(fetchBooks());
+    }
   }, []);
   return (
     <StyledDiv>
