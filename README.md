@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://awaisanwar544.github.io/bootstore/)
+[Live Demo Link](https://sprightly-cannoli-671978.netlify.app)
 
 ## Getting Started
 
